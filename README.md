@@ -8,7 +8,7 @@ TBD
 
     AWS_PROFILE=admin make
 
-# Bugs
+# TODO
 
 - switch to multiple, limited IAM users
  
