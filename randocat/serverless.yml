@@ -8,7 +8,14 @@ provider:
 
 functions:
   hello:
-    handler: handler.main
+    handler: handler.hello
+    
+plugins:
+  - serverless-python-requirements
+
+custom:
+  pythonRequirements:
+    dockerizePip: non-linux
     
     
 # # Welcome to Serverless!
