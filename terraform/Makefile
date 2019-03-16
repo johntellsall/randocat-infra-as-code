@@ -1,0 +1,4 @@
+all:
+
+init:
+	terraform init

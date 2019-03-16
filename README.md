@@ -6,7 +6,12 @@ TBD
 
 # Build, Deploy, and Test
 
-    AWS_PROFILE=admin make
+    AWS_PROFILE=myprofile make
+
+# next level: Terraform
+
+    cd terraform
+    AWS_PROFILE=myprofile terraform init
 
 # TODO
 
