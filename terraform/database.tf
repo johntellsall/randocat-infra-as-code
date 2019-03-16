@@ -13,17 +13,33 @@ data "aws_vpc" "default" {
 #   name   = "default"
 # }
 
-# resource "aws_db_instance" "default" {
-#   allocated_storage    = 20
-# #   storage_type         = "gp2"
-#   engine               = "postgresql"
-# #   engine_version       = "5.7"
-#   instance_class       = "db.t2.micro"
-#   name                 = "mydb"
-#   username             = "foo"
-#   password             = "foobarbaz"
-# #   parameter_group_name = "default.mysql5.7"
-# }
+resource "aws_db_instance" "default" {
+  # RDS instance ID
+  identifier = "mar16"
+  # create database inside instance
+  name                 = "mydb"
+
+  allocated_storage    = 20
+#   storage_type         = "gp2"
+  engine               = "postgres"
+  engine_version       = "10.6"
+  # instance_class       = "db.t3.micro"
+  instance_class       = "db.t3.small"
+  username             = "foo"
+  password             = "foobarbaz"
+#   parameter_group_name = "default.mysql5.7"
+
+# network:
+# db_subnet_group_name
+# vpc_security_group_ids
+
+# security:
+# kms_key_id
+
+# fast feedback, but disruptive:
+  apply_immediately = "true"
+  deletion_protection = "false"
+}
 
 # resource "aws_rds_cluster" "postgresql" {
 #   cluster_identifier      = "mar16-aurora-cluster"
