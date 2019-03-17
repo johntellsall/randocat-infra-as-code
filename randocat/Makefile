@@ -2,6 +2,7 @@ all: package deploy run
 
 package:
 	sls package --verbose --package=mypackage
+	gls -sh mypackage/*.zip
 
 deploy:
 	sls deploy --verbose --package=mypackage
