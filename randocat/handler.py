@@ -20,7 +20,6 @@ def hello(event, context):
 
 def dbversion(event, context):
     print("howdy 1226")
-    print(os.environ)
 
     try:
         conn = psycopg2.connect(

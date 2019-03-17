@@ -1,19 +1,25 @@
 # database.tf
 
-data "aws_vpc" "default" {
-  default = true
-}
+# data "aws_vpc" "selected" {
+#   id = "${var.vpc_id}"
+# }
+
 
 # data "aws_subnet_ids" "all" {
 #   vpc_id = "${data.aws_vpc.default.id}"
 # }
 
-# data "aws_security_group" "default" {
-#   vpc_id = "${data.aws_vpc.default.id}"
-#   name   = "default"
+# data "aws_security_group" "mydb" {
+#   vpc_id = "${data.aws_vpc.selected.id}"
+#   # name   = "default"
 # }
-
-resource "aws_db_instance" "default" {
+data "aws_security_groups" "mydb" {
+  filter {
+    name   = "vpc-id"
+    values = ["${var.vpc_id}"]
+  }
+}
+resource "aws_db_instance" "mydb" {
   # RDS instance ID
   identifier = "mar17"
   # create database inside instance
@@ -28,7 +34,8 @@ resource "aws_db_instance" "default" {
 
 # network:
 # db_subnet_group_name
-vpc_security_group_ids = ["sg-0eabea421d4a56f32"] # TODO make portable
+# vpc_security_group_ids = ["sg-0eabea421d4a56f32"] # TODO make portable
+vpc_security_group_ids = ["${data.aws_security_group.selected.vpc_id}"] 
 
 # security:
 # kms_key_id
