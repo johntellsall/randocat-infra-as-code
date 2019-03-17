@@ -1,0 +1,7 @@
+# generic variables
+DB_HOST=db
+
+# config used by Postgres container and also handler
+POSTGRES_USER=postgres
+POSTGRES_PASSWORD=abc123
+POSTGRES_DB=mydb

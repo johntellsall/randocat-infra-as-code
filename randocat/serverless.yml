@@ -9,6 +9,8 @@ provider:
 functions:
   hello:
     handler: handler.hello
+  dbversion:
+    handler: handler.dbversion
     
 plugins:
   - serverless-dotenv-plugin
