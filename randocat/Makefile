@@ -5,7 +5,7 @@ package:
 	gls -sh mypackage/*.zip
 
 deploy:
-	sls deploy --verbose --package=mypackage
+	sls deploy --package=mypackage
 
 hello:
 	sls invoke -f hello --log

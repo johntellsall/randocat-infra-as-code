@@ -15,7 +15,7 @@ data "aws_vpc" "default" {
 
 resource "aws_db_instance" "default" {
   # RDS instance ID
-  identifier = "mar16"
+  identifier = "mar17"
   # create database inside instance
   name                 = "mydb"
 
@@ -28,7 +28,7 @@ resource "aws_db_instance" "default" {
 
 # network:
 # db_subnet_group_name
-# vpc_security_group_ids
+vpc_security_group_ids = ["sg-0eabea421d4a56f32"] # TODO make portable
 
 # security:
 # kms_key_id
@@ -38,8 +38,15 @@ resource "aws_db_instance" "default" {
   deletion_protection = "false"
 }
 
+
+# resource "aws_db_subnet_group" "mar17" {
+#   name        = "mar17"
+#   description = "Our main group of subnets"
+#   subnet_ids  = ["${aws_subnet.subnet_1.id}", "${aws_subnet.subnet_2.id}"]
+# }
+
 # resource "aws_rds_cluster" "postgresql" {
-#   cluster_identifier      = "mar16-aurora-cluster"
+#   cluster_identifier      = "mar17-aurora-cluster"
 #   engine                  = "aurora-postgresql"
 #   availability_zones      = ["us-west-2a", "us-west-2b", "us-west-2c"]
 #   database_name           = "mydb"
@@ -48,6 +55,7 @@ resource "aws_db_instance" "default" {
 #   backup_retention_period = 5
 #   preferred_backup_window = "07:00-09:00"
 # }
+
 
 
 # module "db" {

@@ -4,7 +4,7 @@ module "vpc" {
   source = "terraform-aws-modules/vpc/aws"
   version = "1.59.0"
 
-  name = "mar16-vpc"
+  name = "mar17-vpc"
   cidr = "10.0.0.0/16"
 
   azs             = ["us-east-1a", "us-east-1b"]
@@ -19,6 +19,6 @@ module "vpc" {
 
   tags = {
     Terraform = "true"
-    Environment = "mar16"
+    Environment = "mar17"
   }
 }
