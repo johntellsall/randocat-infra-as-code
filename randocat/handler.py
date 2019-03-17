@@ -19,7 +19,12 @@ def hello(event, context):
     return response
 
 def dbversion(event, context):
-    print(os.environ.get('DB_PORT'))
+    print("howdy")
+    response = {
+        "statusCode": 200,
+        "body": os.environ.get('DB_HOST')
+    }
+    return response
     try:
         conn = psycopg2.connect(host=os.environ.get('DB_HOST'), 
                                 user=os.environ.get('POSTGRES_USER'), 
