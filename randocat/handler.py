@@ -19,20 +19,15 @@ def hello(event, context):
     return response
 
 def dbversion(event, context):
-    print("howdy 1114")
+    print("howdy 1226")
     print(os.environ)
-    # response = {
-    #     "statusCode": 200,
-    #     "body": os.environ.get('DB_HOST')
-    # }
-    # return response
+
     try:
-        conn = psycopg2.connect(host=os.environ.get('DB_HOST'), 
-                                user=os.environ.get('POSTGRES_USER'), 
-                                password=os.environ.get('POSTGRES_PASSWORD'), 
-                                # port=os.environ.get('POSTGRES_PORT'), 
-                                dbname=os.environ.get('POSTGRES_DBNAME'))
-        return "Connection established"
+        conn = psycopg2.connect(
+            host=os.environ.get('DB_HOST'), 
+            user=os.environ.get('POSTGRES_USER'), 
+            password=os.environ.get('POSTGRES_PASSWORD'), 
+            dbname=os.environ.get('POSTGRES_DBNAME'))
     except psycopg2.DatabaseError as err:
         return str(err)
 
