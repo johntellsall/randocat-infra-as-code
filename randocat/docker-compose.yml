@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  db:
+    image: postgres:10.6
+  web:
+    build: .
+    command: python -c 'import handler; print(handler.dbversion(None, None))'
+    volumes:
+      - .:/code
+    # ports:
+    #   - "8000:8000"
+    depends_on:
+      - db

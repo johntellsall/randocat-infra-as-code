@@ -11,7 +11,9 @@ TBD
 # next level: Terraform
 
     cd terraform
-    AWS_PROFILE=myprofile terraform init
+    AWS_PROFILE=myprofile make init
+
+
 
 # TODO
 

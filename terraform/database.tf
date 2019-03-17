@@ -20,14 +20,11 @@ resource "aws_db_instance" "default" {
   name                 = "mydb"
 
   allocated_storage    = 20
-#   storage_type         = "gp2"
   engine               = "postgres"
   engine_version       = "10.6"
-  # instance_class       = "db.t3.micro"
-  instance_class       = "db.t3.small"
+  instance_class       = "db.t3.micro"
   username             = "foo"
   password             = "foobarbaz"
-#   parameter_group_name = "default.mysql5.7"
 
 # network:
 # db_subnet_group_name
