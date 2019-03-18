@@ -12,6 +12,8 @@ package:
 provider:
   name: aws
   runtime: python3.6
+  tracing:
+    lambda: true
   vpc:
     securityGroupIds:
       - sg-058272a6cf48e74b4

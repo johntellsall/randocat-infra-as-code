@@ -14,3 +14,6 @@ dbversion:
 	sls invoke -f dbversion --log
 
 run: dbversion
+
+update: package
+	sls deploy function --package=mypackage --function=dbversion
