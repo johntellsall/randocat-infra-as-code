@@ -26,7 +26,7 @@ def dbversion(event, context):
             host=os.environ.get('DB_HOST'), 
             user=os.environ.get('POSTGRES_USER'), 
             password=os.environ.get('POSTGRES_PASSWORD'), 
-            dbname=os.environ.get('POSTGRES_DBNAME'))
+            dbname=os.environ.get('POSTGRES_DB'))
     except psycopg2.DatabaseError as err:
         return str(err)
 
