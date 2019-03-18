@@ -1,0 +1,10 @@
+# X: values copied from Terraform TODO simplify
+
+# generic variables
+DB_HOST=mar17.cuvbza3h2iy9.us-east-1.rds.amazonaws.com
+
+# config used by Postgres container and also handler
+# spec: https://hub.docker.com/_/postgres
+POSTGRES_DB=mydb
+POSTGRES_PASSWORD=foobarbaz
+POSTGRES_USER=foo
