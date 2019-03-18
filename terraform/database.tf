@@ -1,23 +1,9 @@
 # database.tf
 
-# data "aws_vpc" "selected" {
-#   id = "${var.vpc_id}"
-# }
+resource "aws_db_subnet_group" "mydb" {
+  name       = "mydb"
+  subnet_ids = ["subnet-036e98e254d9d82dd", "subnet-045afd8c823675165"] # TODO make portable
 
-
-# data "aws_subnet_ids" "all" {
-#   vpc_id = "${data.aws_vpc.default.id}"
-# }
-
-# data "aws_security_group" "mydb" {
-#   vpc_id = "${data.aws_vpc.selected.id}"
-#   # name   = "default"
-# }
-data "aws_security_groups" "mydb" {
-  filter {
-    name   = "vpc-id"
-    values = ["${var.vpc_id}"]
-  }
 }
 resource "aws_db_instance" "mydb" {
   # RDS instance ID
@@ -33,9 +19,8 @@ resource "aws_db_instance" "mydb" {
   password             = "foobarbaz"
 
 # network:
-# db_subnet_group_name
-# vpc_security_group_ids = ["sg-0eabea421d4a56f32"] # TODO make portable
-vpc_security_group_ids = ["${data.aws_security_group.selected.vpc_id}"] 
+  db_subnet_group_name = "${aws_db_subnet_group.mydb.id}"
+  vpc_security_group_ids = ["${var.vpc_security_group_ids}"] # TODO make portable
 
 # security:
 # kms_key_id

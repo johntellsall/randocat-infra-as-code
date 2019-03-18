@@ -10,9 +10,17 @@ TBD
 
 # next level: Terraform
 
+## setup
     cd terraform
     AWS_PROFILE=myprofile make init
 
+## check plan
+
+    AWS_PROFILE=myprofile make plan
+
+## apply planned changes
+
+    AWS_PROFILE=myprofile make apply
 
 
 # TODO
@@ -23,3 +31,9 @@ TBD
 
 * https://serverless.com/blog/serverless-python-packaging/
 
+
+# Troubleshooting
+
+Q: InvalidParameterCombination: The DB instance and EC2 security group are in different VPCs
+
+A: https://github.com/terraform-providers/terraform-provider-aws/issues/3060#issuecomment-448565596
